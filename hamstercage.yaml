@@ -1,0 +1,22 @@
+hosts:
+  webserver:
+    tags:
+    - web
+    - all
+tags:
+  all:
+    description: files that apply to all hosts
+    entries:
+      /etc/motd:
+        group: root
+        mode: 0o644
+        owner: root
+        type: file
+  web:
+    description: files that apply to web servers
+    entries:
+      /usr/share/nginx/html/index.html:
+        group: root
+        mode: 0o644
+        owner: root
+        type: file
