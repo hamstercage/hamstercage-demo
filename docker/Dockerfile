@@ -2,6 +2,8 @@ FROM nginx
 
 RUN apt update && apt install -y python3 python3-pip && pip install hamstercage && apt clean
 
-WORKDIR /hamstercage
+COPY entrypoint.sh /
 
-ENTRYPOINT = [ "/bin/bash" ]
+WORKDIR /hamstercage-demo
+
+ENTRYPOINT [ "/entrypoint.sh" ]
